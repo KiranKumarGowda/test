@@ -1,8 +1,37 @@
-name: GitHub Context
+name: second project
 on: workflow_dispatch
 jobs:
-  info:
-    runs-on: ubuntu-latest
+  
+  Lint:
+    runs-on: ubuntu-lastest
     steps:
-      - name: git Context
-        run: echo "Hello world "
+      - name: get the code
+        uses: actions/checkout@v3
+      - name: Install dependencies
+        run: npm ci
+      - name: Run Lint
+        run:  npm run lint
+
+  Test:
+    needs: Lint
+    runs-on: ubuntu-lastest
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v3
+      - name: Install dependencies
+        run:  npm ci
+      - name: Run tests
+        run : npm test
+  
+  Deploy:
+    needs: Test
+    runs-on: ubuntu-lastest
+    steps:
+      - name : get the code
+        uses: actions/checkout@v3
+      - name: Install dependencies
+        run: npm ci
+      - name: Build code
+        run : npm run build 
+      - name: Deploy
+        run : echo "Deployinggg"
