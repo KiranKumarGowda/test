@@ -3,6 +3,7 @@ on: workflow_dispatch
 jobs:
   Lint:
     runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.job == 'all' || github.event.inputs.job == 'Lint' }}
     steps:
       - name: Get the code
         uses: actions/checkout@v3
@@ -14,6 +15,7 @@ jobs:
   Test:
     needs: Lint
     runs-on: ubuntu-latest
+    if: ${{ github.event.imputs.job == 'all' || github.event.inputs.job == 'Test'}}
     steps:
       - name: Get the code
         uses: actions/checkout@v3
@@ -25,6 +27,7 @@ jobs:
   Deploy:
     needs: Test
     runs-on: ubuntu-latest
+    if: ${{ github.events.inputs.job =='all' || github.event.inputs.job == 'Deploy'}}
     steps:
       - name: Get the code
         uses: actions/checkout@v3
