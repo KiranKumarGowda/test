@@ -1,9 +1,9 @@
 name : Second Project
 on:
-  pull-requests:
-    types:
-      - opened
   workflow_dispatch:
+  push:
+    branches:
+      - dev
 jobs:
   Lint:
     runs-on: ubuntu-latest
@@ -37,4 +37,7 @@ jobs:
       - name: Build Project
         run : npm run build 
       - name : Deploy 
-        run : echo " Deployingggg....."
+        run : echo " Deployingggkigjdg."
+
+
+#  The comments 
