@@ -27,7 +27,8 @@ jobs:
       - name: Update artifacts
         uses: actions/upload-artifact@v3
         with:
-          - name: dist 
+          - name: dist files
+            path : dist
   
   Deploy:
     needs: Test
