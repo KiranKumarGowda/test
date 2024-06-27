@@ -1,6 +1,6 @@
 name : Second Project
 on:
-  pull-requests:
+  pull-request:
     types:
       - opened
   workflow_dispatch:
