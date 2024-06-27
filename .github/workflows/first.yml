@@ -1,9 +1,9 @@
 name : Second Project
 on:
-  pull_request:
-    types: 
-      - opened
   workflow_dispatch:
+  push:
+    branches:
+      - dev
 jobs:
   Lint:
     runs-on: ubuntu-latest
