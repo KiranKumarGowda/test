@@ -42,3 +42,12 @@ jobs:
         run : npm run build 
       - name : Deploy 
         run : echo " Deployingggg....."
+    
+  Secret:
+    needs: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: keeping secrets
+        run : echo " Hello Kiran , your password is $SECRET "
+    env:
+      SECRET : ${{ secrets.SECRET }}        
