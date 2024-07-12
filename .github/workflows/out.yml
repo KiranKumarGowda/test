@@ -9,3 +9,12 @@ jobs:
     steps:
       - name: handle issues 
         run: echo "{{ toJSON(github.event) }}"
+  
+  Secret:
+    runs-on: ubuntu-latest
+    environment: dev
+    steps:
+      - name: keeping env sec
+        run : echo " Hello Kiran , your pin is $SECRET "
+    env:
+      SECRET : ${{secrets.SECRET}}
